@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 
 //Activity only for to help with kompas - draw few lines and shows where is north
-public class TestKompasActivity extends Activity implements SensorEventListener {
+public class TestKompas extends Activity implements SensorEventListener {
 
     Float azimut;
     CustomDrawableView mCustomDrawableView;

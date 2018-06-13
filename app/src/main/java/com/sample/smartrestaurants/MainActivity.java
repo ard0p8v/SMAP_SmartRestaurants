@@ -84,13 +84,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation item click here
         if (id == R.id.dbButton) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.dbPlanButton) {
 
         } else if (id == R.id.mapButton) {
             Intent intent = new Intent(this, MapActivity.class);
             startActivity(intent);
         } else if (id == R.id.testKompasButton) {
-            Intent intent = new Intent(this, TestKompasActivity.class);
+            Intent intent = new Intent(this, TestKompas.class);
             startActivity(intent);
         } else if (id == R.id.kontakt) {
             Intent i = new Intent(Intent.ACTION_SEND);
