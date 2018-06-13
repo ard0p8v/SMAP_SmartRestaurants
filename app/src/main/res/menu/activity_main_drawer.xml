@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <!-- We will work with 3 fragments you can add as many as you want -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dbButton"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Databáze" />
+        <item
+            android:id="@+id/db_plan"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Přidání do databáze" />
+        <item
+            android:id="@+id/mapButton"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Mapa s Restauracemi" />
+        <item
+            android:id="@+id/testKompasButton"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Test kompasu" />
+    </group>
+
+    <item android:title="Komunikace">
+        <menu>
+            <item
+                android:id="@+id/kontakt"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Kontakt" />
+        </menu>
+    </item>
+
+</menu>
