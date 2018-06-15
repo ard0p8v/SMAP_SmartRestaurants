@@ -1,18 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <!-- FrameLayout where fragments will be displayed-->
     <FrameLayout
-        android:id="@+id/fram"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation">
 
-</LinearLayout>
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:background="@color/lightGreen">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/logo"
+                app:srcCompat="@drawable/pribory" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            android:paddingBottom="1.0dip"
+            android:paddingLeft="4.0dip"
+            android:paddingRight="4.0dip"
+            android:paddingTop="1.0dip">
+
+            <Button
+                android:id="@+id/btnMap"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="@drawable/button_bg_rounded_corners"
+                android:onClick="actionBtnGoToMap"
+                android:text="Přejít na mapu"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/btnSpecifyCriteria"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/button_bg_rounded_corners"
+                android:onClick="actionSpecifyCriteria"
+                android:text="Zadat kritéria"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnFindRestaurant"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/button_bg_rounded_corners"
+                android:onClick="actionFindRestaurant"
+                android:text="Najít restauraci"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/green"
+        app:itemIconTint="@color/lightGreen"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/bottom_navigation" />
+
+</RelativeLayout>

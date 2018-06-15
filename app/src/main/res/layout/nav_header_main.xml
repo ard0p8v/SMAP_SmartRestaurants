@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:text="Pavel Ardolf"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="16dp" />
+        android:textSize="18dp"
+        android:textStyle="italic" />
 
 </LinearLayout>

@@ -15,7 +15,7 @@
         <item
             android:id="@+id/mapButton"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Mapa s Restauracemi" />
+            android:title="Mapa s restauracemi" />
         <item
             android:id="@+id/testKompasButton"
             android:icon="@drawable/ic_menu_send"
