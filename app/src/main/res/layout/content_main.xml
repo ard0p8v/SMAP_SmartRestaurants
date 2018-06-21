@@ -17,7 +17,7 @@
         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="290dp"
-            android:background="@color/lightGreen">
+            android:background="@color/lightDark">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -47,6 +47,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/button_bg_rounded_corners"
                 android:onClick="actionBtnGoToMap"
                 android:text="Přejít na mapu"
@@ -61,10 +62,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="100dp"
                 android:background="@drawable/button_bg_rounded_corners"
                 android:onClick="actionSpecifyCriteria"
-                android:text="Zadat kritéria"
+                android:text="Nastavení"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -75,7 +76,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="160dp"
                 android:background="@drawable/button_bg_rounded_corners"
                 android:onClick="actionFindRestaurant"
                 android:text="Najít restauraci"
@@ -91,9 +92,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/green"
-        app:itemIconTint="@color/lightGreen"
-        app:itemTextColor="@color/black"
+        android:background="@color/dark"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/bottom_navigation" />
 
 </RelativeLayout>

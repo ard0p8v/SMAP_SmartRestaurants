@@ -10,6 +10,7 @@
     <string name="commentAndroidApp">Okomentování Android aplikace - SmartRestaurants</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_specify_criteria">Settings</string>
+    <string name="turnOnGps">Zapnout senzor GPS?</string>
 
     <!-- Strings related to Settings -->
 

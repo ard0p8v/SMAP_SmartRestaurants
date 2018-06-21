@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Restaurant in HK</name>
+    <Folder>
+      <name>Restaurant in HK</name>
+      <open>1</open>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Restaurace Aquarium</name>
+		<visibility>1</visibility>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8590758,50.195532</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Šatlava</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.834602,50.210751</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Restaurace FASCILA</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8129981,50.209809</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>POPULAR Restaurant a Sushi</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8291397,50.2099302</coordinates>
+        </Point>
+      </Placemark>
+
+     <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Restaurace Atlanta</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8256861,50.2114093</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Satchmo - Restaurant a Jazz</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8336105,50.2106174</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Restaurace U Dvora</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8352472,50.1965731</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Tandoor - Indicka Nepalska Restaurace</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8326678999999,50.2104504</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>GRIL PIZZERIA IL-TORO</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8480357999999,50.1945463</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Pasta Cook a Look></name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8345577,50.2094219</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Mexita</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.83311,50.2094569</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Localis Restaurace a Café</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8333421,50.2095851</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>The Royal Maharaja</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.835163,50.209637</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Hanoi restaurace</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8314249,50.2095172</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Hradecká bašta</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8315421,50.2085804</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>U Lva</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.828878,50.2077203</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Na Palmovce</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8297967999999,50.210293</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Restaurace u Ferdinanda</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.832285,50.207965</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
+        <name>Primátorka pod terasami</name>
+		<visibility>1</visibility>
+		<styleUrl>root://styles#default</styleUrl>
+		<Style>
+        	<IconStyle>
+        		<scale>1.5</scale>
+        		<color>50AA7800</color>
+        		<Icon>
+        			<href>http://www.poi-service.de/icons/be-lidl.bmp</href>
+        		</Icon>
+        	</IconStyle>
+        	<LabelStyle>
+        		<scale>0.8</scale>
+        	</LabelStyle>
+        </Style>
+        <Point>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <coordinates>15.8353177,50.2124891</coordinates>
+        </Point>
+      </Placemark>
+
+    </Folder>
+  </Document>
+</kml>
