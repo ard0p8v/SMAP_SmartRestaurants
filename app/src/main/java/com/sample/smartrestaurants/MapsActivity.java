@@ -18,18 +18,31 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.maps.android.kml.KmlLayer;
+import com.sample.smartrestaurants.db.Restaurant;
 
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
-    private Location lastKnowLocation;
+    private ChildEventListener mChildEventListener;
+    private DatabaseReference mRestaurants;
+    Marker marker;
+    public static final float BLUE = 200.0F;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,45 +53,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        LocationListener locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                double lat = location.getLatitude();
-                double lng = location.getLongitude();
-                mMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(lat, lng)));
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
-
-        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                1000,
-                5,
-                locationListener);
-
-        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            buildAlertMessageNoGps();
-        }
-
-        lastKnowLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        ChildEventListener mChildEventListener;
+        mRestaurants = FirebaseDatabase.getInstance().getReference("Restaurants");
+        mRestaurants.push().setValue(marker);
     }
 
     @Override
@@ -100,21 +77,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e("MapsActivity", "Can't find style. Error: ", e);
         }
 
-        if (lastKnowLocation != null) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lastKnowLocation.getLatitude(), lastKnowLocation.getLongitude())));
-            mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
-        } else {
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.16598, 15.8349587)));
-            mMap.moveCamera(CameraUpdateFactory.zoomTo(14));
-        }
+        googleMap.setOnMarkerClickListener(this);
+        mRestaurants.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot s : dataSnapshot.getChildren()) {
+                    Restaurant restaurant = s.getValue(Restaurant.class);
+                    LatLng location = new LatLng(restaurant.latitude, restaurant.longitude);
+                    mMap.addMarker(new MarkerOptions().position(location).title(restaurant.name)).setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+                }
+            }
 
-        try {
-            addKml();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         /*
         // Add a marker in Sydney and move the camera
@@ -124,26 +102,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         */
     }
 
-    private void addKml() throws IOException, XmlPullParserException {
-        KmlLayer layer = new KmlLayer(mMap, R.raw.google, getApplicationContext());
-        layer.addLayerToMap();
+    @Override
+    public void onLocationChanged(Location location) {
+
     }
 
-    private void buildAlertMessageNoGps() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("GPS");
-        builder.setMessage(R.string.turnOnGps)
-                .setPositiveButton("Ano", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, final int id) {
-                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                    }
-                })
-                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, final int id) {
-                        dialog.cancel();
-                    }
-                });
-        final AlertDialog alert = builder.create();
-        alert.show();
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
     }
 }

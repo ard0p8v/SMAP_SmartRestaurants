@@ -15,8 +15,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "240785849693-u4r6ladms3rnkl3ecv4gi9j86f42t9he.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "240785849693-qlpj9ha9r007ciekmiab1rst705cmrdh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sample.smartrestaurants",
+            "certificate_hash": "e8a70112bc830e7e0e0d710ebeda0b1034ec5c6a"
+          }
         },
         {
           "client_id": "240785849693-u4r6ladms3rnkl3ecv4gi9j86f42t9he.apps.googleusercontent.com",
@@ -33,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240785849693-u4r6ladms3rnkl3ecv4gi9j86f42t9he.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

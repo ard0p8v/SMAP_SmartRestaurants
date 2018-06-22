@@ -5,29 +5,29 @@
     <!-- We will work with 3 fragments you can add as many as you want -->
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/dbButton"
+            android:id="@+id/btnDatabase"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Databáze" />
+            android:title="Database" />
         <item
-            android:id="@+id/dbPlanButton"
+            android:id="@+id/btnAddRestaurant"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Přidání do databáze" />
+            android:title="Add new restaurant" />
         <item
-            android:id="@+id/btnMap"
+            android:id="@+id/btnGoToMap"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Mapa s restauracemi" />
+            android:title="Go to map" />
         <item
             android:id="@+id/testKompasButton"
             android:icon="@drawable/ic_menu_send"
-            android:title="Test kompasu" />
+            android:title="Compas test" />
     </group>
 
-    <item android:title="Komunikace">
+    <item android:title="Communication">
         <menu>
             <item
                 android:id="@+id/kontakt"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Kontakt" />
+                android:title="Contakt" />
         </menu>
     </item>
 

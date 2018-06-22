@@ -86,9 +86,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         // Handle navigation item click here
-        if (id == R.id.dbButton) {
+        if (id == R.id.btnDatabase) {
             // Handle the camera action
-        } else if (id == R.id.dbPlanButton) {
+        } else if (id == R.id.btnAddRestaurant) {
+            Intent intent = new Intent(this, AddRestaurantActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.btnMap) {
             Intent intent = new Intent(this, MapsActivity.class);
