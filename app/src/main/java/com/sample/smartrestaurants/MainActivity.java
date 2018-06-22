@@ -14,37 +14,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
-                    MainActivity selectedActivity = null;
-
-                    switch (item.getItemId()) {
-                        case R.id.nav_favorites:
-                            selectedFragment = new FavoriteFragment();
-                            break;
-                        case R.id.nav_info:
-                            selectedFragment = new InfoFragment();
-                            break;
-                    }
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-
-                    return true;
-                }
-            };
+    private FirebaseAuth firebaseAuth;
 
     @Override
     public void onBackPressed() {
@@ -94,8 +76,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -109,7 +90,10 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.dbPlanButton) {
 
-        } else if (id == R.id.mapButton) {
+        } else if (id == R.id.btnMap) {
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.testKompasButton) {
             Intent intent = new Intent(this, TestKompas.class);
@@ -130,6 +114,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
     public void actionBtnGoToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
@@ -142,5 +127,13 @@ public class MainActivity extends AppCompatActivity
 
     public void actionFindRestaurant(View view) {
 
+    }
+
+    public void actionSignOut(View view) {
+        firebaseAuth.signOut();
+
+        Toast.makeText(MainActivity.this, "Logout was successful", Toast.LENGTH_LONG).show();
+        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(i);
     }
 }

@@ -13,7 +13,7 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Přidání do databáze" />
         <item
-            android:id="@+id/mapButton"
+            android:id="@+id/btnMap"
             android:icon="@drawable/ic_menu_camera"
             android:title="Mapa s restauracemi" />
         <item
