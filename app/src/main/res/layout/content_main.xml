@@ -60,7 +60,7 @@
 
 
             <Button
-                android:id="@+id/btnSpecifyCriteria"
+                android:id="@+id/btnSettings"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
@@ -68,7 +68,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="130dp"
                 android:background="@drawable/button_style_main"
-                android:onClick="actionSpecifyCriteria"
+                android:onClick="actionSettings"
                 android:text="Settings"
                 android:textColor="#757575"
                 android:textStyle="bold"
