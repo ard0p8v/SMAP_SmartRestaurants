@@ -1,20 +1,12 @@
 package com.sample.smartrestaurants;
 
-import android.Manifest;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -29,12 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.maps.android.kml.KmlLayer;
-import com.sample.smartrestaurants.db.Restaurant;
-
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
+import com.sample.smartrestaurants.model.Restaurant;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
 
@@ -54,7 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         ChildEventListener mChildEventListener;
-        mRestaurants = FirebaseDatabase.getInstance().getReference("Restaurants");
+        mRestaurants = FirebaseDatabase.getInstance().getReference("Restaurant");
         mRestaurants.push().setValue(marker);
     }
 

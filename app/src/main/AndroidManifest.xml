@@ -48,7 +48,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".AddRestaurantActivity"></activity>
+        <activity android:name=".AddRestaurantActivity" />
+        <activity android:name=".AddMenuRestaurantActivity"></activity>
     </application>
 
 </manifest>

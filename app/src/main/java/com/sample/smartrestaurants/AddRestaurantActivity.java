@@ -10,16 +10,25 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.sample.smartrestaurants.db.Restaurant;
+import com.sample.smartrestaurants.model.Restaurant;
 
 public class AddRestaurantActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private DatabaseReference mDatabase;
-    private Button btnSave;
+    private DatabaseReference resDatabase;
+    private Button btnSaveRestaurant;
     private Button btnDisplayOnMap;
     private EditText txtName;
     private EditText txtLatitude;
     private EditText txtLongitude;
+    private EditText txtType;
+    private EditText txtKitchen;
+
+    private DatabaseReference menuDatabase;
+    private Button btnSaveMenu;
+    private EditText txtMenuName;
+    private EditText txtPrice;
+
+    String nameRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +38,13 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
         txtName = findViewById(R.id.name);
         txtLatitude = findViewById(R.id.latitude);
         txtLongitude = findViewById(R.id.longitude);
-        btnSave = findViewById(R.id.btnSave);
+        txtType = findViewById(R.id.type);
+        txtKitchen = findViewById(R.id.kitchen);
+        btnSaveRestaurant = findViewById(R.id.btnSaveRestaurant);
         btnDisplayOnMap = findViewById(R.id.btnDisplayOnMap);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Restaurants");
+        resDatabase = FirebaseDatabase.getInstance().getReference().child("Restaurant");
 
-        btnSave.setOnClickListener(this);
+        btnSaveRestaurant.setOnClickListener(this);
         btnDisplayOnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,22 +55,17 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
 
     }
 
-    public void actionSave(View view) {
-
-    }
-
-    public void actionDisplayOnMap(View view) {
-
-    }
-
-    private void saveRestaurantInformation() {
+    private void saveRestaurantInfo() {
+        DatabaseReference pResDatabase = resDatabase.push();
         String name = txtName.getText().toString().trim();
         double latitude = Double.parseDouble(txtLatitude.getText().toString().trim());
         double longitude = Double.parseDouble(txtLongitude.getText().toString().trim());
+        String type = txtType.getText().toString().trim();
+        String kitchen = txtKitchen.getText().toString().trim();
 
-        Restaurant restaurant = new Restaurant(name, latitude, longitude);
-        mDatabase.child(txtName.getText().toString()).setValue(restaurant);
-        Toast.makeText(this, "Saved", Toast.LENGTH_LONG).show();
+        Restaurant restaurant = new Restaurant(name, latitude, longitude, type, kitchen);
+        pResDatabase.setValue(restaurant);
+        Toast.makeText(this, "Restaurant was saved", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -67,11 +73,26 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
         if(view == btnDisplayOnMap) {
             finish();
         }
-        if(view == btnSave) {
-            saveRestaurantInformation();
+        if(view == btnSaveRestaurant) {
+            saveRestaurantInfo();
+
+            nameRes = txtName.getText().toString();
+
             txtName.getText().clear();
             txtLatitude.getText().clear();
             txtLongitude.getText().clear();
+            txtType.getText().clear();
+            txtKitchen.getText().clear();
+            /*
+
+            Intent i = new Intent(AddRestaurantActivity.this, AddMenuRestaurantActivity.class);
+            startActivity(i);
+            */
         }
+    }
+    public void actionAddMenu(View view){
+        Intent intent = new Intent(AddRestaurantActivity.this, AddMenuRestaurantActivity.class);
+        intent.putExtra("nameRes", nameRes);
+        startActivity(intent);
     }
 }
