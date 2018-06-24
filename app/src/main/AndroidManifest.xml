@@ -47,8 +47,10 @@
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".AddRestaurantActivity" />
         <activity android:name=".AddMenuRestaurantActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".FindRestaurantActivity"></activity>
+        <activity android:name=".AdvancedSearchActivity" />
+        <activity android:name=".AdvancedFindRestaurantActivity" />
+        <activity android:name=".BasicSearchActivity" />
+        <activity android:name=".BasicFindRestaurantActivity"></activity>
     </application>
 
 </manifest>

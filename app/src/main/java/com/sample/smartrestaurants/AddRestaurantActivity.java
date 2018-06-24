@@ -77,7 +77,7 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
         Integer numberEvaluation = 0;
 
         Restaurant restaurant = new Restaurant(name, latitude, longitude, type, kitchen, priceLevel, evaluation, numberEvaluation, garden, childrensCorner, parkingFree);
-        resDatabase.child(txtName.getText().toString()).setValue(restaurant);
+        resDatabase.push().setValue(restaurant);
         Toast.makeText(this, "Restaurant was saved", Toast.LENGTH_LONG).show();
     }
 

@@ -31,7 +31,7 @@ public class AddMenuRestaurantActivity extends AppCompatActivity implements View
         txtPrice = findViewById(R.id.price);
         btnSaveMenu = findViewById(R.id.btnSaveMenu);
         btnDisplayOnMap = findViewById(R.id.btnDisplayOnMap);
-        menuDatabase = FirebaseDatabase.getInstance().getReference().child("Restaurant");
+        menuDatabase = FirebaseDatabase.getInstance().getReference().child("Menu");
         rName = getIntent().getStringExtra("nameRes");
 
         btnSaveMenu.setOnClickListener(this);
@@ -51,7 +51,7 @@ public class AddMenuRestaurantActivity extends AppCompatActivity implements View
 
 
         Menu menu = new Menu(menuName, price, restaurantName);
-        menuDatabase.child(rName.toString()).child("menu").setValue(menu);
+        menuDatabase.push().setValue(menu);
         Toast.makeText(this, "Menu of restaurant was saved", Toast.LENGTH_LONG).show();
     }
 

@@ -114,13 +114,14 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void actionSettings(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
+    public void actionBasicSearch(View view) {
+        Intent intent = new Intent(this, BasicSearchActivity.class);
         startActivity(intent);
     }
 
-    public void actionFindRestaurant(View view) {
-
+    public void actionAdvancedSearch(View view) {
+        Intent intent = new Intent(this, AdvancedSearchActivity.class);
+        startActivity(intent);
     }
 
     public void actionSignOut(View view) {
