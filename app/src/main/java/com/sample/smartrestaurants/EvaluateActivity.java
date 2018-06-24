@@ -32,7 +32,6 @@ public class EvaluateActivity extends AppCompatActivity {
     String name;
     Double evaluation;
     Double rate;
-    int finalNumberEval;
     int numberEvaluation;
 
     @Override
@@ -83,9 +82,40 @@ public class EvaluateActivity extends AppCompatActivity {
                             @Override
                             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                                 rate = Double.parseDouble(rating.getText().toString().trim());
-                                finalNumberEval = numberEvaluation++;
                                 double finalRate = calculateEvaluation(evaluation, rate, numberEvaluation);
+                                int finalNumberEval = numberEvaluation++;
                                 mRef.child(dataSnapshot.getKey()).child("evaluation").setValue(finalRate);
+                                mRef.child(dataSnapshot.getKey()).child("numberEvaluation").setValue(finalNumberEval);
+
+                                showInfo();
+                            }
+
+                            @Override
+                            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                            }
+
+                            @Override
+                            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                            }
+
+                            @Override
+                            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                query.addChildEventListener(
+                        new ChildEventListener() {
+
+                            @Override
+                            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                int finalNumberEval = numberEvaluation++;
                                 mRef.child(dataSnapshot.getKey()).child("numberEvaluation").setValue(finalNumberEval);
 
                                 showInfo();

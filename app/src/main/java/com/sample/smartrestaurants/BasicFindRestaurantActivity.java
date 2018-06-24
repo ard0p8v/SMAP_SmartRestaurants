@@ -14,7 +14,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.sample.smartrestaurants.holder.ViewHolder;
 import com.sample.smartrestaurants.model.Menu;
-import com.sample.smartrestaurants.model.Restaurant;
 
 public class BasicFindRestaurantActivity extends AppCompatActivity {
 

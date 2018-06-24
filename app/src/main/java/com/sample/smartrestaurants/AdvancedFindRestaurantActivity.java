@@ -54,7 +54,17 @@ public class AdvancedFindRestaurantActivity extends AppCompatActivity {
 
         query = FirebaseDatabase.getInstance().getReference("Restaurant")
                 .orderByChild("type")
-                .equalTo(typeRes);
+                .equalTo(typeRes)
+                .orderByChild("kitchen")
+                .equalTo(kitchenType)
+                .orderByChild("priceLevel")
+                .equalTo(priceLevel)
+                .orderByChild("garden")
+                .equalTo(garden)
+                .orderByChild("childrensCorner")
+                .equalTo(childrensCorner)
+                .orderByChild("parkingFree")
+                .equalTo(parkingFree);
 
         btnDisplayOnMap.setOnClickListener(new View.OnClickListener() {
             @Override

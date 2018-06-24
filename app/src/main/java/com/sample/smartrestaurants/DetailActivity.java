@@ -22,6 +22,7 @@ public class DetailActivity extends AppCompatActivity {
     Query query;
 
     ImageView image;
+    TextView evaluationRes;
     TextView nameRestaurant;
     TextView typeRes;
     TextView kitchenRes;
@@ -37,8 +38,9 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        evaluationRes = findViewById(R.id.evaluationRes);
         nameRestaurant = findViewById(R.id.nameRestaurant);
-        typeRes = findViewById(R.id.priceLevelRestaurant);
+        typeRes = findViewById(R.id.typeRestaurant);
         kitchenRes = findViewById(R.id.kitchenRestaurant);
         priceLevelRes = findViewById(R.id.priceLevelRestaurant);
         gardenRes = findViewById(R.id.gardenRestaurant);
@@ -61,6 +63,9 @@ public class DetailActivity extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     String name = ds.child("name").getValue(String.class);
                     nameRestaurant.setText(name);
+
+                    Double evaluation = ds.child("evaluation").getValue(Double.class);
+                    evaluationRes.setText(evaluation.toString());
 
                     String type = ds.child("type").getValue(String.class);
                     typeRes.setText(type);

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="#fff"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="3dp"
     android:elevation="3dp"
     app:cardUseCompatPadding="true">
@@ -11,26 +11,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/rNameTv"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="38dp"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:text="Name"
             android:textColor="@color/blue"
             android:textSize="20dp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/rEvaluationTv"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"

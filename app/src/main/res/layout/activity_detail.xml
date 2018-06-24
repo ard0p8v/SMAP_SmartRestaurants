@@ -12,11 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="108dp"
         android:layout_marginTop="8dp"
         android:text="garden"
+        android:textColor="@color/blue"
         android:textSize="20dp"
-        android:textColor="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/priceLevelRestaurant" />
 
@@ -25,10 +27,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="152dp"
         android:layout_marginTop="8dp"
         android:text="priceLevel"
+        android:textColor="@color/blue"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/kitchenRestaurant" />
 
@@ -37,10 +42,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
         android:text="parking"
+        android:textColor="@color/blue"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/cornerRestaurant" />
 
@@ -49,10 +57,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="corner"
+        android:textColor="@color/blue"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/gardenRestaurant" />
 
@@ -61,10 +72,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="kitchen"
+        android:textColor="@color/blue"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/typeRestaurant" />
 
@@ -73,11 +87,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="48dp"
         android:text="type"
+        android:textColor="@color/blue"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/evaluationRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="evaluation"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
@@ -88,7 +120,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
         android:text="Preferred type of kitchen:"
-        android:textColor="@color/blue"
+        android:textColor="#757575"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -101,7 +133,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
         android:text="Parking free available:"
-        android:textColor="@color/blue"
+        android:textColor="#757575"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
@@ -114,7 +146,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
         android:text="Garden available:"
-        android:textColor="@color/blue"
+        android:textColor="#757575"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
@@ -127,7 +159,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
         android:text="Children's corner available:"
-        android:textColor="@color/blue"
+        android:textColor="#757575"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
@@ -140,7 +172,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
         android:text="Price level:"
-        android:textColor="@color/blue"
+        android:textColor="#757575"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -151,9 +183,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="48dp"
         android:text="Type of restaurant:"
-        android:textColor="@color/blue"
+        android:textColor="#757575"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -166,8 +198,9 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="6dp"
         android:text="Name restaurant"
+        android:textColor="@color/blue"
         android:textSize="33dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
@@ -192,7 +225,7 @@
 
     <Button
         android:id="@+id/btnDisplayMenu"
-        android:layout_width="200dp"
+        android:layout_width="222dp"
         android:layout_height="51dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -208,11 +241,11 @@
 
     <Button
         android:id="@+id/btnDisplayOnMap"
-        android:layout_width="200dp"
+        android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/button_style_login"
         android:onClick="actionEvaluate"
         android:text="Evaluate the restaurant"

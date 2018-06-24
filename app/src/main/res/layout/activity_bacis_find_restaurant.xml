@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".AdvancedFindRestaurantActivity"
     android:orientation="vertical"
-    android:background="@color/lightBlue">
+    android:background="@color/white">
 
     <TextView
         android:text="Basic search results:"
