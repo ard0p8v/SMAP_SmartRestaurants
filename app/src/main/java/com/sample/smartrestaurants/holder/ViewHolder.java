@@ -22,7 +22,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public void setDetails(Context ctx, String name, Double evaluation, String image) {
         TextView mNameTv = mView.findViewById(R.id.rNameTv);
         TextView mEvaluationTv = mView.findViewById(R.id.rEvaluationTv);
-        ImageView mImageIv = mView.findViewById(R.id.rImageView);
+        ImageView mImageIv = mView.findViewById(R.id.imageView);
 
         mNameTv.setText(name);
         mEvaluationTv.setText(evaluation.toString());

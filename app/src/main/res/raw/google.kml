@@ -44,7 +44,7 @@
         	</IconStyle>
         	<LabelStyle>
         		<scale>0.8</scale>
-        	</LabelStyle>
+        	</LabelStyle>R
         </Style>
         <Point>
             <extrude>1</extrude>
@@ -223,7 +223,7 @@
 
       <Placemark>
         <description><![CDATA[Selbská 2883<br><b>352 01 As</b><br>]]></description>
-        <name>Pasta Cook a Look></name>
+        <name>Pasta Cook a Look</name>
 		<visibility>1</visibility>
 		<styleUrl>root://styles#default</styleUrl>
 		<Style>

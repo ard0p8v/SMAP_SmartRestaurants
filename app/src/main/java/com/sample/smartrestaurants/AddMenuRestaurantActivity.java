@@ -32,7 +32,7 @@ public class AddMenuRestaurantActivity extends AppCompatActivity implements View
 
         txtMenuName = findViewById(R.id.menuName);
         txtPrice = findViewById(R.id.price);
-        btnSaveMenu = findViewById(R.id.btnSaveMenu);
+        btnSaveMenu = findViewById(R.id.btnDisplayMenu);
         btnDisplayOnMap = findViewById(R.id.btnDisplayOnMap);
         menuDatabase = FirebaseDatabase.getInstance().getReference().child("Menu");
 

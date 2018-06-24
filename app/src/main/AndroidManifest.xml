@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sample.smartrestaurants">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -36,7 +36,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,7 +50,10 @@
         <activity android:name=".AdvancedSearchActivity" />
         <activity android:name=".AdvancedFindRestaurantActivity" />
         <activity android:name=".BasicSearchActivity" />
-        <activity android:name=".BasicFindRestaurantActivity"></activity>
+        <activity android:name=".BasicFindRestaurantActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".DetailMenuActivity" />
+        <activity android:name=".EvaluateActivity"></activity>
     </application>
 
 </manifest>
