@@ -43,7 +43,7 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
         txtLatitude = findViewById(R.id.latitude);
         txtLongitude = findViewById(R.id.longitude);
         txtType = findViewById(R.id.typeRes);
-        txtKitchen = findViewById(R.id.parkingFree);
+        txtKitchen = findViewById(R.id.kitchen);
         txtPriceLevel = findViewById(R.id.priceLevel);
         txtGarden = findViewById(R.id.garden);
         txtChildrensCorner = findViewById(R.id.childrensCorner);
@@ -64,7 +64,6 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
     }
 
     private void saveRestaurantInfo() {
-        DatabaseReference pResDatabase = resDatabase.push();
         String name = txtName.getText().toString().trim();
         double latitude = Double.parseDouble(txtLatitude.getText().toString().trim());
         double longitude = Double.parseDouble(txtLongitude.getText().toString().trim());
@@ -78,7 +77,7 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
         Integer numberEvaluation = 0;
 
         Restaurant restaurant = new Restaurant(name, latitude, longitude, type, kitchen, priceLevel, evaluation, numberEvaluation, garden, childrensCorner, parkingFree);
-        pResDatabase.setValue(restaurant);
+        resDatabase.child(txtName.getText().toString()).setValue(restaurant);
         Toast.makeText(this, "Restaurant was saved", Toast.LENGTH_LONG).show();
     }
 

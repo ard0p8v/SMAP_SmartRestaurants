@@ -116,7 +116,7 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parkingFree" />
+            app:layout_constraintTop_toBottomOf="@+id/garden" />
 
         <EditText
             android:id="@+id/parkingFree"
@@ -131,7 +131,7 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/garden" />
+            app:layout_constraintTop_toBottomOf="@+id/childrensCorner" />
 
         <EditText
             android:id="@+id/kitchen"
@@ -154,7 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="84dp"
             android:background="@drawable/button_style_login"
             android:text="Save restaurant"
             android:textColor="@color/white"

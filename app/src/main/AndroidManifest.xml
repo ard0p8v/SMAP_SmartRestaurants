@@ -47,7 +47,8 @@
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".AddRestaurantActivity" />
         <activity android:name=".AddMenuRestaurantActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".FindRestaurantActivity"></activity>
     </application>
 
 </manifest>
