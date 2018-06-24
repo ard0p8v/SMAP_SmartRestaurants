@@ -60,6 +60,7 @@ public class AdvancedFindRestaurantActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(AdvancedFindRestaurantActivity.this, MapsActivity.class);
+                i.putExtra("typeRes", typeRes);
                 startActivity(i);
             }
         });

@@ -20,27 +20,13 @@ public class Restaurant {
 
     }
 
-    public Restaurant(String name, double latitude, double longitude, String type, String kitchen, String image, String priceLevel, double evaluation, int numberEvaluation, String garden, String childrensCorner, String parkingFree) {
+    public Restaurant(String name, double latitude, double longitude, String type, String kitchen, String priceLevel, String image, double evaluation, int numberEvaluation, String garden, String childrensCorner, String parkingFree) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
         this.type = type;
         this.kitchen = kitchen;
         this.image = image;
-        this.priceLevel = priceLevel;
-        this.evaluation = evaluation;
-        this.numberEvaluation = numberEvaluation;
-        this.garden = garden;
-        this.childrensCorner = childrensCorner;
-        this.parkingFree = parkingFree;
-    }
-
-    public Restaurant(String name, double latitude, double longitude, String type, String kitchen, String priceLevel, double evaluation, int numberEvaluation, String garden, String childrensCorner, String parkingFree) {
-        this.name = name;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.type = type;
-        this.kitchen = kitchen;
         this.priceLevel = priceLevel;
         this.evaluation = evaluation;
         this.numberEvaluation = numberEvaluation;

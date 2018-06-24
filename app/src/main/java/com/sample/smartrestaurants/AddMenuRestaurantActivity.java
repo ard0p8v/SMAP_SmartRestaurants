@@ -21,6 +21,9 @@ public class AddMenuRestaurantActivity extends AppCompatActivity implements View
     private EditText txtPrice;
 
     public String rName;
+    public String rLatitude;
+    public String rLongitude;
+    public String rImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,11 @@ public class AddMenuRestaurantActivity extends AppCompatActivity implements View
         btnSaveMenu = findViewById(R.id.btnSaveMenu);
         btnDisplayOnMap = findViewById(R.id.btnDisplayOnMap);
         menuDatabase = FirebaseDatabase.getInstance().getReference().child("Menu");
+
         rName = getIntent().getStringExtra("nameRes");
+        rLatitude = getIntent().getStringExtra("latitude");
+        rLongitude = getIntent().getStringExtra("longitude");
+        rImage = getIntent().getStringExtra("image");
 
         btnSaveMenu.setOnClickListener(this);
         btnDisplayOnMap.setOnClickListener(new View.OnClickListener() {
@@ -48,9 +55,12 @@ public class AddMenuRestaurantActivity extends AppCompatActivity implements View
         String menuName = txtMenuName.getText().toString().trim();
         double price = Double.parseDouble(txtPrice.getText().toString().trim());
         String restaurantName = rName.toString();
+        Double latitude = Double.parseDouble(rLatitude.toString().trim());
+        Double longitude = Double.parseDouble(rLongitude.toString().trim());
+        String image = rImage.toString();
 
 
-        Menu menu = new Menu(menuName, price, restaurantName);
+        Menu menu = new Menu(menuName, price, restaurantName, image, latitude, longitude);
         menuDatabase.push().setValue(menu);
         Toast.makeText(this, "Menu of restaurant was saved", Toast.LENGTH_LONG).show();
     }

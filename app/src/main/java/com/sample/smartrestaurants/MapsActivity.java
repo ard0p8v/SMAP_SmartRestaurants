@@ -20,7 +20,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.sample.smartrestaurants.model.Menu;
 import com.sample.smartrestaurants.model.Restaurant;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
@@ -28,21 +30,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private ChildEventListener mChildEventListener;
     private DatabaseReference mRestaurants;
+    private Query query;
     Marker marker;
+    String kindOfFood;
+    String typeRes;
     public static final float BLUE = 200.0F;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        kindOfFood = getIntent().getStringExtra("kindOfFood");
+        typeRes = getIntent().getStringExtra("typeRes");
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         ChildEventListener mChildEventListener;
-        mRestaurants = FirebaseDatabase.getInstance().getReference("Restaurant");
-        mRestaurants.push().setValue(marker);
+
+        if (kindOfFood != null) {
+            query = FirebaseDatabase.getInstance().getReference("Menu")
+                    .orderByChild("menuName")
+                    .startAt(kindOfFood)
+                    .endAt(kindOfFood+"\uf8ff")
+                    .limitToFirst(10);
+        } else if (typeRes != null) {
+            query = FirebaseDatabase.getInstance().getReference("Restaurant")
+                    .orderByChild("type")
+                    .equalTo(typeRes);
+        } else {
+            mRestaurants = FirebaseDatabase.getInstance().getReference("Restaurant");
+            mRestaurants.push().setValue(marker);
+        }
     }
 
     @Override
@@ -65,21 +86,57 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         googleMap.setOnMarkerClickListener(this);
-        mRestaurants.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot s : dataSnapshot.getChildren()) {
-                    Restaurant restaurant = s.getValue(Restaurant.class);
-                    LatLng location = new LatLng(restaurant.latitude, restaurant.longitude);
-                    mMap.addMarker(new MarkerOptions().position(location).title(restaurant.name)).setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+
+        if (kindOfFood != null) {
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot s : dataSnapshot.getChildren()) {
+                        Menu menu = s.getValue(Menu.class);
+                        LatLng location = new LatLng(menu.latitude, menu.longitude);
+                        mMap.addMarker(new MarkerOptions().position(location).title(menu.restaurantName)).setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        } else if (typeRes != null) {
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot s : dataSnapshot.getChildren()) {
+                        Restaurant restaurant = s.getValue(Restaurant.class);
+                        LatLng location = new LatLng(restaurant.latitude, restaurant.longitude);
+                        mMap.addMarker(new MarkerOptions().position(location).title(restaurant.name)).setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        } else {
+            mRestaurants.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot s : dataSnapshot.getChildren()) {
+                        Restaurant restaurant = s.getValue(Restaurant.class);
+                        LatLng location = new LatLng(restaurant.latitude, restaurant.longitude);
+                        mMap.addMarker(new MarkerOptions().position(location).title(restaurant.name)).setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
 
         /*
         // Add a marker in Sydney and move the camera

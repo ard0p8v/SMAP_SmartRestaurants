@@ -45,12 +45,15 @@ public class BasicFindRestaurantActivity extends AppCompatActivity {
 
         query = FirebaseDatabase.getInstance().getReference("Menu")
                 .orderByChild("menuName")
-                .equalTo(kindOfFood);
+                .startAt(kindOfFood)
+                .endAt(kindOfFood+"\uf8ff")
+                .limitToFirst(10);
 
         btnDisplayOnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(BasicFindRestaurantActivity.this, MapsActivity.class);
+                i.putExtra("kindOfFood", kindOfFood);
                 startActivity(i);
             }
         });

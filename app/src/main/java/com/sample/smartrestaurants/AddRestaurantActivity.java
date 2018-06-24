@@ -23,6 +23,7 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
     private EditText txtType;
     private EditText txtKitchen;
     private EditText txtPriceLevel;
+    private EditText txtImage;
     private EditText txtGarden;
     private EditText txtChildrensCorner;
     private EditText txtParkingFree;
@@ -33,6 +34,9 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
     private EditText txtPrice;
 
     String nameRes;
+    String latitude;
+    String longitude;
+    String image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
         txtType = findViewById(R.id.typeRes);
         txtKitchen = findViewById(R.id.kitchen);
         txtPriceLevel = findViewById(R.id.priceLevel);
+        txtImage = findViewById(R.id.image);
         txtGarden = findViewById(R.id.garden);
         txtChildrensCorner = findViewById(R.id.childrensCorner);
         txtParkingFree = findViewById(R.id.parkingFree);
@@ -70,13 +75,14 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
         String type = txtType.getText().toString().trim();
         String kitchen = txtKitchen.getText().toString().trim();
         String priceLevel = txtPriceLevel.getText().toString().trim();
+        String image = txtImage.getText().toString().trim();
         String garden = txtGarden.getText().toString().trim();
         String childrensCorner = txtChildrensCorner.getText().toString().trim();
         String parkingFree = txtParkingFree.getText().toString().trim();
         Double evaluation = 0.0;
         Integer numberEvaluation = 0;
 
-        Restaurant restaurant = new Restaurant(name, latitude, longitude, type, kitchen, priceLevel, evaluation, numberEvaluation, garden, childrensCorner, parkingFree);
+        Restaurant restaurant = new Restaurant(name, latitude, longitude, type, kitchen, priceLevel, image, evaluation, numberEvaluation, garden, childrensCorner, parkingFree);
         resDatabase.push().setValue(restaurant);
         Toast.makeText(this, "Restaurant was saved", Toast.LENGTH_LONG).show();
     }
@@ -90,6 +96,9 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
             saveRestaurantInfo();
 
             nameRes = txtName.getText().toString();
+            latitude = txtLatitude.getText().toString();
+            longitude = txtLongitude.getText().toString();
+            image = txtImage.getText().toString();
 
             txtName.getText().clear();
             txtLatitude.getText().clear();
@@ -97,6 +106,7 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
             txtType.getText().clear();
             txtKitchen.getText().clear();
             txtPriceLevel.getText().clear();
+            txtImage.getText().clear();
             txtGarden.getText().clear();
             txtChildrensCorner.getText().clear();
             txtParkingFree.getText().clear();
@@ -105,6 +115,9 @@ public class AddRestaurantActivity extends AppCompatActivity implements View.OnC
     public void actionAddMenu(View view){
         Intent intent = new Intent(AddRestaurantActivity.this, AddMenuRestaurantActivity.class);
         intent.putExtra("nameRes", nameRes);
+        intent.putExtra("latitude", latitude);
+        intent.putExtra("longitude", longitude);
+        intent.putExtra("image", image);
         startActivity(intent);
     }
 }
