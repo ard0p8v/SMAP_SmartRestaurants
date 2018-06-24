@@ -16,7 +16,7 @@ public class BasicSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic_search);
 
-        txtKindOfFood = findViewById(R.id.kindOfFood);
+        txtKindOfFood = findViewById(R.id.rating);
     }
 
     public void actionFindRestaurant(View view) {
