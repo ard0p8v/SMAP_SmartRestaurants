@@ -27,7 +27,7 @@
             <item
                 android:id="@+id/kontakt"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Contakt" />
+                android:title="Contact" />
         </menu>
     </item>
 
