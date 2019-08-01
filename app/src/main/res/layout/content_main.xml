@@ -1,111 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <FrameLayout
-            android:id="@+id/fragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:paddingBottom="1.0dip"
-            android:paddingLeft="4.0dip"
-            android:paddingRight="4.0dip"
-            android:paddingTop="1.0dip">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Welcome!"
-                android:textColor="#757575"
-                android:textSize="33dp"
-                android:textStyle="bold"
-                android:layout_marginBottom="33dp"/>
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="154dp"
-                android:layout_marginTop="90dp"
-                android:contentDescription="@string/nav_header_desc"
-                app:srcCompat="@drawable/pribory" />
-
-            <Button
-                android:id="@+id/btnMap"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_style_main"
-                android:onClick="actionBtnGoToMap"
-                android:text="Go to map"
-                android:textColor="#757575"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="377dp" />
 
 
-            <Button
-                android:id="@+id/btnBasic"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="110dp"
-                android:background="@drawable/button_style_main"
-                android:onClick="actionBasicSearch"
-                android:text="Basic search"
-                android:textColor="#757575"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="76dp"
+        android:text="Welcome!"
+        android:textColor="#757575"
+        android:textSize="33dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btnAdvanced"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="170dp"
-                android:background="@drawable/button_style_main"
-                android:onClick="actionAdvancedSearch"
-                android:text="Advanced search"
-                android:textColor="#757575"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="156dp"
+        android:layout_height="141dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/pribory" />
 
-            <Button
-                android:id="@+id/btnSignOut"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="270dp"
-                android:background="@drawable/button_style_main"
-                android:onClick="actionSignOut"
-                android:text="Logout"
-                android:textColor="#757575"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_style_main"
+        android:onClick="actionBtnGoToMap"
+        android:text="Go to map"
+        android:textColor="#757575"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-        </FrameLayout>
 
-    </FrameLayout>
+    <Button
+        android:id="@+id/btnBasic"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_style_main"
+        android:onClick="actionBasicSearch"
+        android:text="Basic search"
+        android:textColor="#757575"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMap" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btnAdvanced"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_style_main"
+        android:onClick="actionAdvancedSearch"
+        android:text="Advanced search"
+        android:textColor="#757575"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBasic" />
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_style_login"
+        android:onClick="actionSignOut"
+        android:text="Logout"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdvanced"
+        app:layout_constraintVertical_bias="0.842" />
+
+</android.support.constraint.ConstraintLayout>
+

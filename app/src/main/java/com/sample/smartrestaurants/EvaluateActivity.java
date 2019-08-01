@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,9 @@ public class EvaluateActivity extends AppCompatActivity {
 
     String name;
     Double evaluation;
-    Double rate;
+    Double evaluationSum;
+    Float rate;
+    RatingBar ratingBar;
     int numberEvaluation;
 
     @Override
@@ -43,6 +46,7 @@ public class EvaluateActivity extends AppCompatActivity {
 
         btnEvaluate = findViewById(R.id.btnEvaluate);
         rating = findViewById(R.id.rating);
+        ratingBar = findViewById(R.id.ratingbar);
         nameRestaurant = findViewById(R.id.nameRes);
         nameRestaurant.setText(name);
 
@@ -57,7 +61,8 @@ public class EvaluateActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    numberEvaluation = ds.child("numberEvaluation").getValue(Integer.class);
+                    numberEvaluation = ds.child("evaluationNum").getValue(Integer.class);
+                    evaluationSum = ds.child("evaluationSum").getValue(Double.class);
 
                     evaluation = ds.child("evaluation").getValue(Double.class);
                     nameRestaurant.setText(name);
@@ -76,18 +81,26 @@ public class EvaluateActivity extends AppCompatActivity {
         btnEvaluate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String rating = "Rating is: " + ratingBar.getRating();
+                Toast.makeText(EvaluateActivity.this,"Rating were added! " + rating, Toast.LENGTH_SHORT).show();
                 query.addChildEventListener(
                         new ChildEventListener() {
 
                             @Override
                             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                                rate = Double.parseDouble(rating.getText().toString().trim());
-                                double finalRate = calculateEvaluation(evaluation, rate, numberEvaluation);
-                                int finalNumberEval = numberEvaluation++;
+                                //rate = Double.parseDouble(rating.getText().toString().trim());
+                                rate = ratingBar.getRating();
+                                numberEvaluation++;
+                                double finalRate = calculateEvaluation(evaluation, rate, evaluationSum, numberEvaluation);
+                                evaluationSum = evaluationSum + rate;
                                 mRef.child(dataSnapshot.getKey()).child("evaluation").setValue(finalRate);
-                                mRef.child(dataSnapshot.getKey()).child("numberEvaluation").setValue(finalNumberEval);
+                                mRef.child(dataSnapshot.getKey()).child("evaluationSum").setValue(evaluationSum);
+                                mRef.child(dataSnapshot.getKey()).child("evaluationNum").setValue(numberEvaluation);
 
-                                showInfo();
+                                //showInfo();
+
+                                Intent i = new Intent(EvaluateActivity.this, MapsActivity.class);
+                                startActivity(i);
                             }
 
                             @Override
@@ -118,7 +131,7 @@ public class EvaluateActivity extends AppCompatActivity {
                                 int finalNumberEval = numberEvaluation++;
                                 mRef.child(dataSnapshot.getKey()).child("numberEvaluation").setValue(finalNumberEval);
 
-                                showInfo();
+                                //showInfo();
                             }
 
                             @Override
@@ -141,25 +154,24 @@ public class EvaluateActivity extends AppCompatActivity {
 
                             }
                         });
-            }
+                }
         });
     }
 
+
     public void showInfo() {
-        Toast.makeText(this, "Rating were added", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Rating were added" + rating, Toast.LENGTH_LONG).show();
     }
 
-    public double calculateEvaluation(double evaluation, double currentEval, int numberOfEvaluation) {
+    public double calculateEvaluation(double evaluation, double currentEvaluation, double sumEvaluation, int numberEvaluation) {
 
         double finalEval = 0;
 
-        if(numberOfEvaluation == 0) {
-            finalEval = currentEval;
+        if(numberEvaluation == 1) {
+            finalEval = currentEvaluation;
         } else {
-            double pom1 = numberOfEvaluation * evaluation;
-            numberOfEvaluation++;
-            double pom2 = evaluation + currentEval;
-            finalEval = pom2 / numberOfEvaluation;
+            double pom1 = sumEvaluation + currentEvaluation;
+            finalEval = pom1 / numberEvaluation;
         }
 
         return finalEval;
