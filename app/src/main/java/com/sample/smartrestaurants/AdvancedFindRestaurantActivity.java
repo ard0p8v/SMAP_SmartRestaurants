@@ -91,7 +91,7 @@ public class AdvancedFindRestaurantActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(ViewHolder viewHolder, Restaurant model, int position) {
 
-                viewHolder.setDetails(getApplicationContext(), model.getName(), model.getEvaluation(), model.getImage());
+                //viewHolder.setDetails(getApplicationContext(), model.getName(), model.getMenuName(), model.getPrice(), model.getImage());
 
             }
         };

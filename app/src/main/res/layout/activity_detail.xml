@@ -15,11 +15,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="108dp"
         android:layout_marginTop="8dp"
-        android:text="garden"
+        android:text="yes"
         android:textColor="@color/blue"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintHorizontal_bias="0.039"
         app:layout_constraintStart_toEndOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/priceLevelRestaurant" />
 
@@ -31,11 +31,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="152dp"
         android:layout_marginTop="8dp"
-        android:text="priceLevel"
+        android:text="to 300 Kc"
         android:textColor="@color/blue"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/kitchenRestaurant" />
 
@@ -47,10 +47,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
-        android:text="parking"
+        android:text="yes"
         android:textColor="@color/blue"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/cornerRestaurant" />
 
@@ -62,10 +63,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="corner"
+        android:text="yes"
         android:textColor="@color/blue"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toEndOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/gardenRestaurant" />
 
@@ -74,14 +76,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="180dp"
         android:layout_marginTop="8dp"
-        android:text="kitchen"
+        android:text="czech"
         android:textColor="@color/blue"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/typeRestaurant" />
 
     <TextView
@@ -90,15 +93,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="48dp"
-        android:text="type"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="restaurant"
         android:textColor="@color/blue"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintHorizontal_bias="0.652"
         app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/evaluationRes" />
 
     <TextView
         android:id="@+id/evaluationRes"

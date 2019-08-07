@@ -32,6 +32,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView parkingRes;
 
     String name;
+    String fName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,21 +49,38 @@ public class DetailActivity extends AppCompatActivity {
         parkingRes = findViewById(R.id.parkingFreeRestaurant);
         image = findViewById(R.id.imageView);
 
+
+        fName = getIntent().getStringExtra("rNameTv");
         name = getIntent().getStringExtra("markertitle");
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference("Restaurant");
 
-        query = FirebaseDatabase.getInstance().getReference("Restaurant")
-                .orderByChild("name")
-                .equalTo(name);
+        if(fName == null) {
+            query = FirebaseDatabase.getInstance().getReference("Restaurant")
+                    .orderByChild("name")
+                    .equalTo(name);
+        }
+
+        if(name == null) {
+            query = FirebaseDatabase.getInstance().getReference("Restaurant")
+                    .orderByChild("name")
+                    .equalTo(fName);
+        }
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    String name = ds.child("name").getValue(String.class);
-                    nameRestaurant.setText(name);
+                    if(fName == null) {
+                        String name = ds.child("name").getValue(String.class);
+                        nameRestaurant.setText(name);
+                    }
+
+                    if(name == null){
+                        String name = ds.child("name").getValue(String.class);
+                        nameRestaurant.setText(name);
+                    }
 
                     Double evaluation = ds.child("evaluation").getValue(Double.class);
                     evaluationRes.setText(evaluation.toString());
@@ -99,13 +117,21 @@ public class DetailActivity extends AppCompatActivity {
 
     public void actionDisplayMenu(View view) {
         Intent intent = new Intent(DetailActivity.this, DetailMenuActivity.class);
-        intent.putExtra("name", name);
+        if(name == null){
+            intent.putExtra("name", fName);
+        } else {
+            intent.putExtra("name", name);
+        }
         startActivity(intent);
     }
 
     public void actionEvaluate(View view) {
         Intent intent = new Intent(DetailActivity.this, EvaluateActivity.class);
-        intent.putExtra("name", name);
+        if(name == null){
+            intent.putExtra("name", fName);
+        } else {
+            intent.putExtra("name", name);
+        }
         startActivity(intent);
     }
 }

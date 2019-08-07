@@ -19,18 +19,20 @@
         <TextView
             android:id="@+id/rNameTv"
             android:layout_width="wrap_content"
-            android:layout_height="38dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:gravity="center_horizontal"
             android:text="Name"
             android:textColor="@color/blue"
             android:textSize="20dp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/rEvaluationTv"
+            android:id="@+id/rPriceTv"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -38,6 +40,7 @@
             android:layout_marginStart="8dp"
             android:text="adfasdf"
             android:textSize="20dp"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

@@ -72,7 +72,7 @@ public class BasicFindRestaurantActivity extends AppCompatActivity {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Menu model, int position) {
 
-                        viewHolder.setDetails(getApplicationContext(), model.getRestaurantName(), model.getPrice(), model.getImage());
+                        viewHolder.setDetails(getApplicationContext(), model.getRestaurantName(), model.getMenuName(), model.getPrice(), model.getImage());
 
                     }
                 };

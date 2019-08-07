@@ -8,6 +8,7 @@ public class Menu {
     public String image;
     public double latitude;
     public double longitude;
+    public double evaluation;
 
     public Menu() {
 
@@ -39,6 +40,10 @@ public class Menu {
 
     public double getPrice() {
         return price;
+    }
+
+    public double getEvaluation() {
+        return evaluation;
     }
 
     public void setPrice(double price) {

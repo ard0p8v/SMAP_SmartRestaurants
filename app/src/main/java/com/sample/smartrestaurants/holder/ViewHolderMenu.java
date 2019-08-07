@@ -19,9 +19,10 @@ public class ViewHolderMenu extends RecyclerView.ViewHolder {
 
     public void setDetailsMenu(Context ctx, String menuName, Double price) {
         TextView mNameTv = mView.findViewById(R.id.rNameTv);
-        TextView mPriceTv = mView.findViewById(R.id.rEvaluationTv);
+        TextView mPriceTv = mView.findViewById(R.id.rPriceTv);
 
         mNameTv.setText(menuName);
-        mPriceTv.setText(price.toString());
+        mPriceTv.setText(price.toString() + " Kč");
     }
+
 }
