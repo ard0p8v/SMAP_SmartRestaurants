@@ -231,32 +231,46 @@
 
     <Button
         android:id="@+id/btnDisplayMenu"
-        android:layout_width="220dp"
+        android:layout_width="230dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/button_style_main"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_style_login"
         android:onClick="actionDisplayMenu"
         android:text="Display menu of restaurant"
-        android:textColor="#757575"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <Button
-        android:id="@+id/btnDisplayOnMap"
-        android:layout_width="220dp"
+        android:id="@+id/btnCheckAvailability"
+        android:layout_width="230dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_style_login"
+        android:onClick="actionDisplayMenu"
+        android:text="Check availability"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDisplayOnMap" />
+
+    <Button
+        android:id="@+id/btnDisplayOnMap"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/button_style_login"
         android:onClick="actionEvaluate"
         android:text="Evaluate the restaurant"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDisplayMenu" />
 

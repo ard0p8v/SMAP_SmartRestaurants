@@ -1,5 +1,6 @@
 package com.sample.smartrestaurants;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -20,7 +21,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -37,6 +37,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.sample.smartrestaurants.model.Menu;
 import com.sample.smartrestaurants.model.Restaurant;
 
@@ -52,6 +58,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private ChildEventListener mChildEventListener;
     private DatabaseReference mRestaurants;
     private Query query;
+    private LocationManager locationManager;
+    private LocationListener locationListener;
+    private LatLng userLatLng;
     Marker marker;
 
     String kindOfFood;
@@ -89,7 +98,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             query = FirebaseDatabase.getInstance().getReference("Menu")
                     .orderByChild("menuName")
                     .startAt(kindOfFood)
-                    .endAt(kindOfFood+"\uf8ff")
+                    .endAt(kindOfFood + "\uf8ff")
                     .limitToFirst(10);
         } else if (typeRes != null) {
             query = FirebaseDatabase.getInstance().getReference("Restaurant")
@@ -106,17 +115,49 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap = googleMap;
 
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                userLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+                mMap.clear();
+                Marker marker = mMap.addMarker(new MarkerOptions()
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_location))
+                        .position(userLatLng)
+                        .title("Current Location"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(userLatLng));
+
+                marker.showInfoWindow();
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+
+
+        };
+
+        askLocationPermission();
+
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
                     ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
-                mMap.setMyLocationEnabled(true);
             }
-        }
-        else {
+        } else {
             buildGoogleApiClient();
-            mMap.setMyLocationEnabled(true);
         }
 
         try {
@@ -142,12 +183,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     for (DataSnapshot s : dataSnapshot.getChildren()) {
                         Restaurant restaurant = s.getValue(Restaurant.class);
                         LatLng location = new LatLng(restaurant.latitude, restaurant.longitude);
-                        mMap.addMarker(new MarkerOptions()
+                        Marker marker = mMap.addMarker(new MarkerOptions()
+                                .icon(BitmapDescriptorFactory.defaultMarker(BLUE))
                                 .position(location)
-                                .title(restaurant.name))
-                                .setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+                                .title(restaurant.name));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.19776, 15.83386)));
-                        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
+                        mMap.moveCamera(CameraUpdateFactory.zoomTo(8));    //13
+
                     }
                 }
 
@@ -163,12 +205,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     for (DataSnapshot s : dataSnapshot.getChildren()) {
                         Menu menu = s.getValue(Menu.class);
                         LatLng location = new LatLng(menu.latitude, menu.longitude);
-                        mMap.addMarker(new MarkerOptions()
+                        Marker marker = mMap.addMarker(new MarkerOptions()
+                                .icon(BitmapDescriptorFactory.defaultMarker(BLUE))
                                 .position(location)
-                                .title(menu.restaurantName))
-                                .setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+                                .title(menu.restaurantName));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.19776, 15.83386)));
-                        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
+                        mMap.moveCamera(CameraUpdateFactory.zoomTo(8));
+
                     }
                 }
 
@@ -184,12 +227,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     for (DataSnapshot s : dataSnapshot.getChildren()) {
                         Restaurant restaurant = s.getValue(Restaurant.class);
                         LatLng location = new LatLng(restaurant.latitude, restaurant.longitude);
-                        mMap.addMarker(new MarkerOptions()
+                        Marker marker = mMap.addMarker(new MarkerOptions()
+                                .icon(BitmapDescriptorFactory.defaultMarker(BLUE))
                                 .position(location)
-                                .title(restaurant.name))
-                                .setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+                                .title(restaurant.name));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.19776, 15.83386)));
-                        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
+                        mMap.moveCamera(CameraUpdateFactory.zoomTo(8));
+
                     }
                 }
 
@@ -202,15 +246,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mRestaurants.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    for(DataSnapshot s : dataSnapshot.getChildren()) {
+                    for (DataSnapshot s : dataSnapshot.getChildren()) {
                         Restaurant restaurant = s.getValue(Restaurant.class);
                         LatLng location = new LatLng(restaurant.latitude, restaurant.longitude);
-                        mMap.addMarker(new MarkerOptions()
+                        Marker marker = mMap.addMarker(new MarkerOptions()
+                                .icon(BitmapDescriptorFactory.defaultMarker(BLUE))
                                 .position(location)
-                                .title(restaurant.name))
-                                .setIcon(BitmapDescriptorFactory.defaultMarker(BLUE));
+                                .title(restaurant.name));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.19776, 15.83386)));
-                        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
+                        mMap.moveCamera(CameraUpdateFactory.zoomTo(8));
+
                     }
                     mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                         @Override
@@ -240,6 +285,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         */
     }
 
+    private void askLocationPermission() {
+        Dexter.withActivity(this).withPermission(Manifest.permission.ACCESS_FINE_LOCATION).withListener(new PermissionListener() {
+            @Override
+            public void onPermissionGranted(PermissionGrantedResponse response) {
+                if (ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+
+                Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                userLatLng = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
+                mMap.clear();
+                Marker marker = mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_location)).position(userLatLng).title("Current Location"));
+                marker.showInfoWindow();
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(userLatLng));
+            }
+
+            @Override
+            public void onPermissionDenied(PermissionDeniedResponse response) {
+
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                token.continuePermissionRequest();
+            }
+        }).check();
+    }
+
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -251,41 +325,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onLocationChanged(Location location) {
 
-        mLastLocation = location;
-        if (mCurrLocationMarker != null) {
-            mCurrLocationMarker.remove();
-        }
-        //Place current location marker
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title("Current Position");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-        mCurrLocationMarker = mMap.addMarker(markerOptions);
 
-        //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-
-        //stop location updates
-        if (mGoogleApiClient != null) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, (com.google.android.gms.location.LocationListener) MapsActivity.this);
-        }
 
     }
 
     @Override
-    public void onStatusChanged(String s, int i, Bundle bundle) {
+    public void onStatusChanged(String provider, int status, Bundle extras) {
 
     }
 
     @Override
-    public void onProviderEnabled(String s) {
+    public void onProviderEnabled(String provider) {
 
     }
 
     @Override
-    public void onProviderDisabled(String s) {
+    public void onProviderDisabled(String provider) {
 
     }
 
@@ -296,15 +351,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(1000);
-        mLocationRequest.setFastestInterval(1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-        if (ContextCompat.checkSelfPermission(this,
-                ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, (com.google.android.gms.location.LocationListener) this);
-        }
+
 
     }
 
