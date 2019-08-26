@@ -6,13 +6,6 @@ Tato aplikace slouží k nalezení, ulehčení či upřesnění výběru restaur
 
 <hr />
 
-#### School project - FIM UHK
-SMAP - Smart approaches to creating IS and applications
-
-This application is used to find, relieve or refine the restaurant selection according to criteria and internal navigation in the restaurant. First, the user enters the required restaurant selection criteria and saves. Once the assignment is complete, the user redirects to a map activity where the closest restaurant in the given environment will be available. After selecting the restaurant, you will see the topology of the restaurant with the marked path to that location (table).
-
-
-
 ## Technologies
 * Android
 * Google Maps
@@ -20,7 +13,7 @@ This application is used to find, relieve or refine the restaurant selection acc
 * Compass
 * Stepcounter
 * Use these libraries
-** Dexter library  - https://github.com/Karumi/Dexter
-** Picasso library - https://github.com/square/picasso
-** PhotoView library - https://github.com/chrisbanes/PhotoView
+- Dexter library  - https://github.com/Karumi/Dexter
+- Picasso library - https://github.com/square/picasso 
+- PhotoView library - https://github.com/chrisbanes/PhotoView
 
