@@ -10,7 +10,7 @@ Tato aplikace slouží k nalezení, ulehčení či upřesnění výběru restaur
 * Firebase
 * Compass
 * Stepcounter
-* Use these libraries
+* Using these libraries
   - Dexter library  - https://github.com/Karumi/Dexter
   - Picasso library - https://github.com/square/picasso 
   - PhotoView library - https://github.com/chrisbanes/PhotoView
