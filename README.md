@@ -16,5 +16,11 @@ This application is used to find, relieve or refine the restaurant selection acc
 ## Technologies
 * Android
 * Google Maps
+* Firebase
 * Compass
 * Stepcounter
+* Use these libraries
+** Dexter library  - https://github.com/Karumi/Dexter
+** Picasso library - https://github.com/square/picasso
+** PhotoView library - https://github.com/chrisbanes/PhotoView
+

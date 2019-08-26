@@ -48,7 +48,7 @@
                 android:id="@+id/footer_item_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UMTE - final project"
+                android:text="SMAP - final project"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18dp"
                 android:textStyle="italic" />

@@ -17,111 +17,293 @@
         android:background="@color/white"
         tools:context=".AdvancedSearchActivity">
 
-        <EditText
-            android:id="@+id/typeRes"
-            android:layout_width="285dp"
+        <RatingBar
+            android:id="@+id/ratingbar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/edit_text_style"
-            android:ems="10"
-            android:hint="Type of restaurant"
-            android:inputType="textPersonName"
+            android:numStars="5"
+            android:saveEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-        <EditText
-            android:id="@+id/kitchenType"
-            android:layout_width="285dp"
-            android:layout_height="43dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/edit_text_style"
-            android:ems="10"
-            android:hint="Preferred type of kitchen"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <EditText
-            android:id="@+id/priceLevel"
-            android:layout_width="285dp"
+        <RadioGroup
+            android:id="@+id/radioGroupLevel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/edit_text_style"
-            android:ems="10"
-            android:hint="Price level of one serving"
-            android:inputType="textPersonName"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintTop_toBottomOf="@+id/textView11">
 
-        <EditText
-            android:id="@+id/parkingFree"
-            android:layout_width="285dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/edit_text_style"
-            android:ems="10"
-            android:hint="Parking free?"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            <RadioButton
+                android:id="@+id/level_300"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="to 300 Kc"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
 
-        <EditText
-            android:id="@+id/childrensCorner"
-            android:layout_width="285dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/edit_text_style"
-            android:ems="10"
-            android:hint="Children's corner?"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+            <RadioButton
+                android:id="@+id/level_300600"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="300-600 Kc"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
 
-        <EditText
-            android:id="@+id/garden"
-            android:layout_width="285dp"
+            <RadioButton
+                android:id="@+id/level_600"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="from 600 Kc"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/level_nevim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="doesn't matter"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupParking"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/edit_text_style"
-            android:ems="10"
-            android:hint="Garden?"
-            android:inputType="textPersonName"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+            <RadioButton
+                android:id="@+id/parkingFree_ano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="yes"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/parkingFree_ne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="no"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/parkingFree_nevim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="doesn't matter"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupCorner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+            <RadioButton
+                android:id="@+id/corner_ano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="yes"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/corner_ne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="no"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/corner_nevim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="doesn't matter"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupGarden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+            <RadioButton
+                android:id="@+id/garden_ano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="yes"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/garden_ne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="no"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/garden_nevim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="doesn't matter"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+            <RadioButton
+                android:id="@+id/type_restaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="Restaurant"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/type_pizzeria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="Pizzeria"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/type_fastfood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="FastFood"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/type_cafeterie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="Cafeterie"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupKitchen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+            <RadioButton
+                android:id="@+id/kitchen_czech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="czech"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/kitchen_italian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="italian"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/kitchen_mexician"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="mexician"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/kitchen_chinese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="chinese"
+                android:textSize="11sp"
+                android:textColor="@color/dark" />
+
+            <RadioButton
+                android:id="@+id/kitchen_nevim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="doesn't matter"
+                android:textColor="@color/dark"
+                android:textSize="11sp" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/btnFindRestaurant"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/button_style_login"
             android:onClick="actionFindRestaurant"
             android:text="Find restaurant"
             android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parkingFree" />
+            app:layout_constraintTop_toBottomOf="@+id/ratingbar" />
 
 
         <TextView
@@ -146,13 +328,12 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
             android:text="Advanced searching"
             android:textSize="33dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -180,38 +361,37 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="E.g. czech, italian, mexican etc. "
+            android:text="Preferred type of kitchen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/typeRes" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupType" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="15dp"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="E.g. to 300 Kc, 300-600 Kc, from 600 Kc "
+            android:text="Price level"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/kitchenType" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupKitchen" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="16dp"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="yes/no"
+            android:layout_marginTop="40dp"
+            android:text="Garden"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/priceLevel" />
+            app:layout_constraintTop_toTopOf="@+id/radioGroupLevel" />
 
         <TextView
             android:id="@+id/textView13"
@@ -220,11 +400,24 @@
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="yes/no"
+            android:layout_marginTop="40dp"
+            android:text="Parking free"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/childrensCorner" />
+            app:layout_constraintTop_toTopOf="@+id/radioGroupCorner" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Evaluation at least"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupGarden" />
 
         <TextView
             android:id="@+id/textView14"
@@ -233,12 +426,12 @@
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="yes/no"
+            android:layout_marginTop="40dp"
+            android:text="Children's corner"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/garden" />
+            app:layout_constraintTop_toTopOf="@+id/radioGroupParking" />
 
         <TextView
             android:id="@+id/textView9"
@@ -248,8 +441,8 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="52dp"
-            android:text="E.g. restaurant, fast food, cafeteria"
+            android:layout_marginTop="36dp"
+            android:text="Type of restaurant"
             app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

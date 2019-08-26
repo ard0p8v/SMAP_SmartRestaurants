@@ -253,7 +253,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/button_style_login"
         android:onClick="actionDisplayMenu"
-        android:text="Check availability"
+        android:text="Show restaurant topology"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

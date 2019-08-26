@@ -21,16 +21,19 @@ public class AdvancedSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advanced_search);
 
+        /*
         txtTypeRes = findViewById(R.id.typeRes);
         txtKitchenType = findViewById(R.id.kitchenType);
         txtPriceLevel = findViewById(R.id.priceLevel);
         txtGarden = findViewById(R.id.garden);
         txtChildrensCorner = findViewById(R.id.childrensCorner);
         txtParkingFree = findViewById(R.id.parkingFree);
+        */
     }
 
     public void actionFindRestaurant(View view) {
-        String typeRes = txtTypeRes.getText().toString().trim();
+
+        /*String typeRes = txtTypeRes.getText().toString().trim();
         String kitchenType = txtKitchenType.getText().toString().trim();
         String priceLevel = txtPriceLevel.getText().toString().trim();
         String garden = txtGarden.getText().toString().trim();
@@ -45,5 +48,6 @@ public class AdvancedSearchActivity extends AppCompatActivity {
         intent.putExtra("childrensCorner", childrensCorner);
         intent.putExtra("parkingFree", parkingFree);
         startActivity(intent);
+        */
     }
 }

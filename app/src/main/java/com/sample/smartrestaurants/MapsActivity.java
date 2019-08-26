@@ -188,7 +188,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 .position(location)
                                 .title(restaurant.name));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.19776, 15.83386)));
-                        mMap.moveCamera(CameraUpdateFactory.zoomTo(8));    //13
+                        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));    //13
 
                     }
                 }
@@ -210,7 +210,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 .position(location)
                                 .title(menu.restaurantName));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.19776, 15.83386)));
-                        mMap.moveCamera(CameraUpdateFactory.zoomTo(8));
+                        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
 
                     }
                 }
@@ -232,7 +232,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 .position(location)
                                 .title(restaurant.name));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.19776, 15.83386)));
-                        mMap.moveCamera(CameraUpdateFactory.zoomTo(8));
+                        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
 
                     }
                 }
@@ -254,7 +254,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 .position(location)
                                 .title(restaurant.name));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(50.19776, 15.83386)));
-                        mMap.moveCamera(CameraUpdateFactory.zoomTo(8));
+                        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
 
                     }
                     mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {

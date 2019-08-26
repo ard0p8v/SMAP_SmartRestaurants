@@ -36,7 +36,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +53,11 @@
         <activity android:name=".BasicFindRestaurantActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".DetailMenuActivity" />
-        <activity android:name=".EvaluateActivity"></activity>
+        <activity android:name=".EvaluateActivity" />
+        <activity
+            android:name=".IndoorNavActivity"
+            android:label="@string/title_activity_indoor_nav"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
