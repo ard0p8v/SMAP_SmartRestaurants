@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,16 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import com.sample.smartrestaurants.holder.ViewHolder;
-import com.sample.smartrestaurants.holder.ViewHolderMenu;
+import com.sample.smartrestaurants.R;
+import com.sample.smartrestaurants.services.ViewHolderMenu;
 import com.sample.smartrestaurants.model.Menu;
-import com.squareup.picasso.Picasso;
 
 public class DetailMenuActivity extends AppCompatActivity {
 

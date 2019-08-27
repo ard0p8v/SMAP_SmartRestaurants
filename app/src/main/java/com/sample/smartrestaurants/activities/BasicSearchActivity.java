@@ -1,10 +1,12 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.sample.smartrestaurants.R;
 
 public class BasicSearchActivity extends AppCompatActivity {
 

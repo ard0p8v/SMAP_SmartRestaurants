@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".DetailActivity">
+    tools:context=".activities.DetailActivity">
 
     <TextView
         android:id="@+id/gardenRestaurant"
@@ -205,7 +205,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
-        android:text="Name restaurant"
+        android:text="Restaurant name"
         android:textColor="@color/blue"
         android:textSize="33dp"
         android:textStyle="bold"
@@ -245,14 +245,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <Button
-        android:id="@+id/btnCheckAvailability"
+        android:id="@+id/btnTopology"
         android:layout_width="230dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/button_style_login"
-        android:onClick="actionDisplayMenu"
+        android:onClick="actionShowTopology"
         android:text="Show restaurant topology"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

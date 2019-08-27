@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -43,6 +43,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.sample.smartrestaurants.R;
 import com.sample.smartrestaurants.model.Menu;
 import com.sample.smartrestaurants.model.Restaurant;
 

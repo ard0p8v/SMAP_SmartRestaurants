@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".EvaluateActivity">
+    tools:context=".activities.EvaluateActivity">
 
     <TextView
         android:id="@+id/nameRes"

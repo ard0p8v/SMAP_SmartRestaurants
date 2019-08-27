@@ -15,7 +15,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingBottom="8dp"
-        tools:context=".AddRestaurantActivity">
+        tools:context=".activities.AddRestaurantActivity">
 
         <EditText
             android:id="@+id/name"

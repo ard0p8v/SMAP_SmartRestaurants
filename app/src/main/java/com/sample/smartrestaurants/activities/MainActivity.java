@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.sample.smartrestaurants.R;
+import com.sample.smartrestaurants.services.CompassTesting;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.testKompasButton) {
-            Intent intent = new Intent(this, TestKompas.class);
+            Intent intent = new Intent(this, CompassTesting.class);
             startActivity(intent);
         } else if (id == R.id.kontakt) {
             Intent i = new Intent(Intent.ACTION_SEND);

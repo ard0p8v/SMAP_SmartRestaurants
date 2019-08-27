@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants.holder;
+package com.sample.smartrestaurants.services;
 
 import android.content.ClipData;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sample.smartrestaurants.DetailActivity;
+import com.sample.smartrestaurants.activities.DetailActivity;
 import com.sample.smartrestaurants.R;
 import com.squareup.picasso.Picasso;
 

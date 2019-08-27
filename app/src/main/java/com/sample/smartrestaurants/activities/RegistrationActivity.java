@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.sample.smartrestaurants.R;
 
 public class RegistrationActivity extends AppCompatActivity {
 

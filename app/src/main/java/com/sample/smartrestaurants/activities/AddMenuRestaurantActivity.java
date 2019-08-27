@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.sample.smartrestaurants.R;
 import com.sample.smartrestaurants.model.Menu;
 
 public class AddMenuRestaurantActivity extends AppCompatActivity implements View.OnClickListener {

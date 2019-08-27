@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.services;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 
 //Activity only for to help with kompas - draw few lines and shows where is north
-public class TestKompas extends Activity implements SensorEventListener {
+public class CompassTesting extends Activity implements SensorEventListener {
 
     Float azimut;
     CustomDrawableView mCustomDrawableView;

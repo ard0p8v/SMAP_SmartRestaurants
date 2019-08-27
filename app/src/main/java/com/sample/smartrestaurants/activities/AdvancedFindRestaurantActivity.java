@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.sample.smartrestaurants.holder.ViewHolder;
+import com.sample.smartrestaurants.R;
+import com.sample.smartrestaurants.services.ViewHolder;
 import com.sample.smartrestaurants.model.Restaurant;
 
 public class AdvancedFindRestaurantActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.sample.smartrestaurants;
+package com.sample.smartrestaurants.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.sample.smartrestaurants.R;
 import com.squareup.picasso.Picasso;
 
 public class DetailActivity extends AppCompatActivity {
@@ -127,6 +128,16 @@ public class DetailActivity extends AppCompatActivity {
 
     public void actionEvaluate(View view) {
         Intent intent = new Intent(DetailActivity.this, EvaluateActivity.class);
+        if(name == null){
+            intent.putExtra("name", fName);
+        } else {
+            intent.putExtra("name", name);
+        }
+        startActivity(intent);
+    }
+
+    public void actionShowTopology(View view) {
+        Intent intent = new Intent(DetailActivity.this, ShowTopologyActivity.class);
         if(name == null){
             intent.putExtra("name", fName);
         } else {

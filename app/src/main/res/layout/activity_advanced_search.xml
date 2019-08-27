@@ -15,7 +15,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:background="@color/white"
-        tools:context=".AdvancedSearchActivity">
+        tools:context=".activities.AdvancedSearchActivity">
 
         <RatingBar
             android:id="@+id/ratingbar"
