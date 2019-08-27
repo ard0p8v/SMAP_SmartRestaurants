@@ -25,6 +25,7 @@ public class AdvancedFindRestaurantActivity extends AppCompatActivity {
     String garden;
     String childrensCorner;
     String parkingFree;
+    String rating;
 
     RecyclerView mRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
@@ -38,12 +39,13 @@ public class AdvancedFindRestaurantActivity extends AppCompatActivity {
 
         btnDisplayOnMap = findViewById(R.id.btnDisplayOnMap);
 
-        typeRes = getIntent().getStringExtra("typeRes");
-        kitchenType = getIntent().getStringExtra("kitchenType");
-        priceLevel = getIntent().getStringExtra("priceLevel");
+        typeRes = getIntent().getStringExtra("type");
+        kitchenType = getIntent().getStringExtra("kitchen");
+        priceLevel = getIntent().getStringExtra("price");
         garden = getIntent().getStringExtra("garden");
-        childrensCorner = getIntent().getStringExtra("childrensCorner");
-        parkingFree = getIntent().getStringExtra("parkingFree");
+        childrensCorner = getIntent().getStringExtra("corner");
+        parkingFree = getIntent().getStringExtra("parking");
+        rating = getIntent().getStringExtra("rating");
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -54,18 +56,13 @@ public class AdvancedFindRestaurantActivity extends AppCompatActivity {
         mRef = mFirebaseDatabase.getReference("Restaurant");
 
         query = FirebaseDatabase.getInstance().getReference("Restaurant")
-                .orderByChild("type")
-                .equalTo(typeRes)
-                .orderByChild("kitchen")
-                .equalTo(kitchenType)
-                .orderByChild("priceLevel")
-                .equalTo(priceLevel)
-                .orderByChild("garden")
-                .equalTo(garden)
-                .orderByChild("childrensCorner")
-                .equalTo(childrensCorner)
-                .orderByChild("parkingFree")
-                .equalTo(parkingFree);
+                .orderByChild("type").equalTo(typeRes)
+                .orderByChild("kitchen").equalTo(kitchenType)
+                .orderByChild("priceLevel").equalTo(priceLevel)
+                .orderByChild("garden").equalTo(garden)
+                .orderByChild("childrensCorner").equalTo(childrensCorner)
+                .orderByChild("parkingFree").equalTo(parkingFree)
+                .orderByChild("evaluation").equalTo(rating);
 
         btnDisplayOnMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +89,7 @@ public class AdvancedFindRestaurantActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(ViewHolder viewHolder, Restaurant model, int position) {
 
-                //viewHolder.setDetails(getApplicationContext(), model.getName(), model.getMenuName(), model.getPrice(), model.getImage());
+                //viewHolder.setDetails(getApplicationContext(), model.getName(), model.get(), model.getPrice(), model.getImage());
 
             }
         };
