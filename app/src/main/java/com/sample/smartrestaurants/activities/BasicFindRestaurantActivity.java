@@ -1,5 +1,6 @@
 package com.sample.smartrestaurants.activities;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,9 +13,12 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.maps.android.quadtree.PointQuadTree;
 import com.sample.smartrestaurants.R;
 import com.sample.smartrestaurants.services.ViewHolder;
 import com.sample.smartrestaurants.model.Menu;
+import com.google.firebase.perf.FirebasePerformance;
+import com.google.firebase.perf.metrics.Trace;
 
 public class BasicFindRestaurantActivity extends AppCompatActivity {
 
@@ -61,6 +65,13 @@ public class BasicFindRestaurantActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        Trace myTrace = FirebasePerformance.getInstance().newTrace("test_trace");
+        myTrace.start();
+
+        myTrace.incrementCounter("item_cache_hit", 1);
+
+        myTrace.incrementCounter("item_cache_miss", 1);
+
         super.onStart();
 
         FirebaseRecyclerAdapter<Menu, ViewHolder> firebaseRecyclerAdapter =
@@ -79,5 +90,7 @@ public class BasicFindRestaurantActivity extends AppCompatActivity {
                 };
 
         mRecyclerView.setAdapter(firebaseRecyclerAdapter);
+
+        myTrace.stop();
     }
 }

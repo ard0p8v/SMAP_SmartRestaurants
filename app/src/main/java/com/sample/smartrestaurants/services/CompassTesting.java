@@ -3,6 +3,7 @@ package com.sample.smartrestaurants.services;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.hardware.Sensor;
@@ -12,35 +13,36 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 
-//Activity only for to help with kompas - draw few lines and shows where is north
 public class CompassTesting extends Activity implements SensorEventListener {
 
-    Float azimut;
-    CustomDrawableView mCustomDrawableView;
+    Float azimuth;
     Sensor accelerometer;
     Sensor magnetometer;
-    float[] mGravity;
-    float[] mGeomagnetic;
-    private SensorManager mSensorManager;
+
+    float[] gravity;
+    float[] geomagnetic;
+
+    SensorManager sensorManager;
+    CustomDrawableView customDrawableView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCustomDrawableView = new CustomDrawableView(this);
-        setContentView(mCustomDrawableView);    // Register the sensor listeners
-        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        magnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        customDrawableView = new CustomDrawableView(this);
+        setContentView(customDrawableView);    // Register the sensor listeners
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
     }
 
     protected void onResume() {
         super.onResume();
-        mSensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
-        mSensorManager.registerListener(this, magnetometer, SensorManager.SENSOR_DELAY_UI);
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
+        sensorManager.registerListener(this, magnetometer, SensorManager.SENSOR_DELAY_UI);
     }
 
     protected void onPause() {
         super.onPause();
-        mSensorManager.unregisterListener(this);
+        sensorManager.unregisterListener(this);
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -48,21 +50,21 @@ public class CompassTesting extends Activity implements SensorEventListener {
 
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
-            mGravity = event.values;
+            gravity = event.values;
         if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD)
-            mGeomagnetic = event.values;
-        if (mGravity != null && mGeomagnetic != null) {
+            geomagnetic = event.values;
+        if (gravity != null && geomagnetic != null) {
             float R[] = new float[9];
             float I[] = new float[9];
-            boolean success = SensorManager.getRotationMatrix(R, I, mGravity, mGeomagnetic);
+            boolean success = SensorManager.getRotationMatrix(R, I, gravity, geomagnetic);
             if (success) {
                 float orientation[] = new float[3];
                 SensorManager.getOrientation(R, orientation);
-                azimut = orientation[0]; //  azimut, pitch and roll
-                System.out.println(azimut);
+                azimuth = orientation[0]; //  azimut, pitch and roll
+                System.out.println(azimuth);
             }
         }
-        mCustomDrawableView.invalidate();
+        customDrawableView.invalidate();
     }
 
     public class CustomDrawableView extends View {
@@ -82,19 +84,26 @@ public class CompassTesting extends Activity implements SensorEventListener {
             int height = getHeight();
             int centerx = width / 2;
             int centery = height / 2;
+
+            paint.setStrokeWidth(10f);
             canvas.drawLine(centerx, 0, centerx, height, paint);
             canvas.drawLine(0, centery, width, centery, paint);
-            // Rotate the canvas with the azimut
-            if (azimut != null)
-                canvas.rotate(-azimut * 360 / (2 * 3.14159f), centerx, centery);
-            paint.setColor(0xff0000ff);
+
+            if (azimuth != null)
+                canvas.rotate(-azimuth * 360 / (2 * 3.14159f), centerx, centery);
+
+            paint.setColor(Color.rgb(3, 155, 229));
+
             canvas.drawLine(centerx, -1000, centerx, +1000, paint);
             canvas.drawLine(-1000, centery, 1000, centery, paint);
-            canvas.drawText("N", centerx + 5, centery - 10, paint);
-            canvas.drawText("S", centerx - 10, centery + 15, paint);
-            if (azimut != null)
-                canvas.drawText(azimut.toString(), 300, 300, paint);
-            paint.setColor(0xff00ff00);
+
+            canvas.drawText("NORTH", centerx + 5, centery - 10, paint);
+            canvas.drawText("SOUTH", centerx - 10, centery + 15, paint);
+
+            if (azimuth != null)
+                canvas.drawText(azimuth.toString(), 300, 300, paint);
+
+            paint.setColor(Color.rgb(3, 155, 229));
         }
     }
 }
